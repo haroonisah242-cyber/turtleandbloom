@@ -108,7 +108,7 @@ const Index = () => {
         </div>
       </section>
       {/* Hero Section */}
-      <section className="relative min-h-[60vh] flex items-center justify-start overflow-hidden">
+      <section className="relative min-h-[60vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
           <img
             src={heroImage}
@@ -116,12 +116,12 @@ const Index = () => {
             className="w-full h-full object-cover"
           />
         </div>
-        <div className="relative z-10 container flex flex-col justify-center items-start h-full px-4 sm:pl-8 py-10 sm:py-16">
+        <div className="relative z-10 container flex flex-col justify-center items-center h-full px-4 py-12 sm:py-16">
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.1 }}
-            className="font-display text-white text-3xl xs:text-4xl sm:text-5xl md:text-7xl font-medium max-w-3xl leading-tight mb-8 text-left drop-shadow-lg"
+            className="font-display text-white text-3xl xs:text-4xl sm:text-5xl md:text-7xl font-medium max-w-3xl leading-tight mb-8 text-center drop-shadow-lg"
           >
             Stories that expand what the world sees
           </motion.h1>
@@ -129,14 +129,14 @@ const Index = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="flex flex-col sm:flex-row gap-4 w-full max-w-xs sm:max-w-none"
+            className="flex flex-col gap-4 w-full max-w-sm"
           >
-            <Button asChild variant="hero" size="xl" className="w-full sm:w-auto">
+            <Button asChild variant="hero" size="xl" className="w-full">
               <Link to="/garden">
                 Explore projects
               </Link>
             </Button>
-            <Button asChild variant="heroOutline" size="xl" className="w-full sm:w-auto border-white text-white bg-white/20 hover:bg-white/40 hover:text-foreground">
+            <Button asChild variant="heroOutline" size="xl" className="w-full border-white text-white bg-white/20 hover:bg-white/40 hover:text-foreground">
               <Link to="/shop">
                 Shop TheMOOVBook™
               </Link>
