@@ -5,7 +5,7 @@ import { ArrowRight, Play, Sparkles } from "lucide-react";
 import { Layout } from "@/components/Layout";
 // import heroImage from "@/assets/Hero.png";
 import HeroSlider from "@/components/HeroSlider";
-import whyImg from "@/assets/why.png";
+import whyImg from "@/assets/ac2.jpg";
 import moveImg from "@/assets/move.png";
 import vectorImg from "@/assets/Vector.png";
 import moovProducts from "@/assets/moov-products.jpg";
@@ -52,12 +52,7 @@ const allProjects = [
   },
   {
     id: "num-fun",
-      <motion.section
-        initial={{ opacity: 0, y: -40 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 0.1 }}
-        className="w-full flex flex-col items-center bg-white pt-10 pb-2 mt-24"
-      >
+    title: "NUM Fun Africa",
     subtitle: "A live-action numeracy show that makes maths fun and confidence-building.",
     image: numFunAfrica,
   },
@@ -78,7 +73,7 @@ const processSteps = [
   {
     step: "02",
     title: "Create",
-      </motion.section>
+    description: "We build characters, worlds and formats that feel honest and emotionally grounded.",
   },
   {
     step: "03",
@@ -115,21 +110,17 @@ const Index = () => {
       </section>
       {/* Hero Section with Slider and Overlayed Content */}
       <section className="relative min-h-[60vh] flex items-center justify-center overflow-hidden">
-      <motion.section
-        initial={{ opacity: 0, y: 60 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.8, delay: 0.2 }}
-        className="py-24 md:py-32"
-      >
+        {/* Hero Image Slider */}
+        <HeroSlider />
         {/* Sticky Overlay Content */}
         <div className="absolute inset-0 flex items-center justify-center z-20 pointer-events-none">
-          <div className="bg-white/90 rounded-xl shadow-xl px-8 py-10 flex flex-col items-center max-w-2xl w-full mx-4 pointer-events-auto sticky top-0">
+          <div className="flex flex-col items-center w-full max-w-2xl mx-4 pointer-events-auto sticky top-0">
             <motion.h1
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.1 }}
-              className="font-display text-gray-900 text-3xl xs:text-4xl sm:text-5xl md:text-7xl font-medium leading-tight mb-8 text-center drop-shadow-lg"
+              className="font-display text-white text-3xl xs:text-4xl sm:text-5xl md:text-7xl font-medium leading-tight mb-8 text-center"
+              style={{ textShadow: '0 2px 16px rgba(0,0,0,0.85), 0 1px 0 #000' }}
             >
               Stories that expand what the world sees
             </motion.h1>
@@ -141,10 +132,10 @@ const Index = () => {
             >
               <Button asChild variant="hero" size="xl" className="w-full transition-opacity duration-700 pointer-events-auto opacity-100">
                 <Link to="/garden">
-      </motion.section>
+                  Explore projects
                 </Link>
               </Button>
-              <Button asChild variant="heroOutline" size="xl" className="w-full border-gray-900 text-gray-900 bg-white/40 hover:bg-white/60 hover:text-foreground transition-opacity duration-700 pointer-events-auto opacity-100">
+              <Button asChild variant="heroOutline" size="xl" className="w-full border-white text-white bg-white/20 hover:bg-white/40 hover:text-foreground transition-opacity duration-700 pointer-events-auto opacity-100">
                 <Link to="/shop">
                   Shop TheMOOVBook™
                 </Link>

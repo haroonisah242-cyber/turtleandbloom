@@ -2,18 +2,18 @@ import React, { useState, useEffect } from 'react';
 
 const slides = [
   {
-    src: '/src/assets/mock up 1.png',
-    alt: 'Creative wellness products',
+    src: '/src/assets/ac1.jpg',
+    alt: 'Slider image 1',
     caption: 'Creative Wellness for All',
   },
   {
-    src: '/src/assets/mock up 3.png',
-    alt: 'Children exploring a garden',
+    src: '/src/assets/ac2.jpg',
+    alt: 'Slider image 2',
     caption: 'Explore Nature',
   },
   {
-    src: '/src/assets/mock up 4.png',
-    alt: 'Family reading together',
+    src: '/src/assets/ac3.jpg',
+    alt: 'Slider image 3',
     caption: 'Grow Together',
   },
 ];
