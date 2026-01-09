@@ -87,12 +87,13 @@ const Index = () => {
     <Layout>
       {/* Announcement Bar Section */}
       <section className="w-full flex flex-col items-center bg-white pt-10 pb-2 mt-24">
-        {
-          id: "num-fun",
-          title: "NUM Fun Africa",
-          subtitle: "A live-action numeracy show that makes maths fun and confidence-building.",
-          image: numFunAfrica,
-        },
+        <img src={vectorImg} alt="Turtle & Bloom Logo" className="w-[700px] max-w-full h-auto mb-2 mx-auto transition-transform duration-500 ease-in-out hover:scale-105 turtle-bounce" style={{ cursor: 'pointer' }} />
+        <div className="hidden md:flex justify-center items-center border-2 border-blue-500 rounded-sm px-2 py-1 w-fit gap-8 mt-2">
+          <div className="flex items-center gap-1">
+            <img src={vectorImg} alt="vector" className="w-4 h-4" />
+            <span className="text-[11px] text-[#373324] tracking-wide">FREE SHIP ORDER OVER $100</span>
+          </div>
+          <div className="flex items-center gap-1">
             <img src={vectorImg} alt="vector" className="w-4 h-4" />
             <span className="text-[11px] text-[#373324] tracking-wide">CREATIVE WELLNESS</span>
           </div>
