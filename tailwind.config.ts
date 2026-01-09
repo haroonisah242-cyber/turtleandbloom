@@ -17,6 +17,10 @@ export default {
         display: ['var(--font-display)', 'Georgia', 'serif'],
         body: ['var(--font-body)', 'system-ui', 'sans-serif'],
       },
+       animation: {
+         'spin-slow': 'spin 4s linear infinite',
+         'fadeIn': 'fadeIn 1s ease-in',
+       },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",

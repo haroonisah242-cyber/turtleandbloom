@@ -121,37 +121,53 @@ const Garden = () => {
                 id={project.id}
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
+                whileHover={{ scale: 1.03, rotate: 1 }}
+                whileTap={{ scale: 0.98, rotate: -1 }}
                 viewport={{ once: true, margin: "-100px" }}
-                transition={{ duration: 0.8 }}
-                className="scroll-mt-32"
+                transition={{ duration: 0.8, type: 'spring', stiffness: 200 }}
+                className="scroll-mt-32 shadow-lg rounded-xl transition-transform duration-300"
               >
                 <div className={`grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center ${
                   index % 2 === 1 ? "lg:grid-flow-dense" : ""
                 }`}>
                   {/* Image */}
-                  <div className={`${index % 2 === 1 ? "lg:col-start-2" : ""}`}>
-                    <div className="relative aspect-[4/3] overflow-hidden bg-muted">
+                  <div className={`${index % 2 === 1 ? "lg:col-start-2" : ""}`}> 
+                    <motion.div
+                      whileHover={{ scale: 1.04, rotate: 1 }}
+                      whileTap={{ scale: 0.98 }}
+                      className="relative aspect-[4/3] overflow-hidden bg-muted shadow-lg transition-transform duration-300 rounded-xl"
+                    >
                       <img
                         src={project.image}
                         alt={project.title}
-                        className="w-full h-full object-cover"
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                       />
                       {project.status && (
-                        <div className="absolute top-4 left-4 bg-accent text-accent-foreground px-3 py-1 text-xs uppercase tracking-wider">
+                        <div className="absolute top-4 left-4 bg-accent text-accent-foreground px-3 py-1 text-xs uppercase tracking-wider animate-pulse">
                           {project.status}
                         </div>
                       )}
-                    </div>
+                    </motion.div>
                   </div>
 
                   {/* Content */}
-                  <div className={`${index % 2 === 1 ? "lg:col-start-1 lg:row-start-1" : ""}`}>
-                    <h2 className="font-display text-3xl md:text-4xl font-medium mb-3" style={{ color: '#373324' }}>
+                  <div className={`${index % 2 === 1 ? "lg:col-start-1 lg:row-start-1" : ""}`}> 
+                    <motion.h2
+                      className="font-display text-3xl md:text-4xl font-medium mb-3"
+                      style={{ color: '#373324' }}
+                      whileHover={{ scale: 1.05, color: '#F2614E' }}
+                      transition={{ type: 'spring', stiffness: 300 }}
+                    >
                       {project.title}
-                    </h2>
-                    <p className="text-lg font-medium mb-6" style={{ color: '#AD6B19' }}>
+                    </motion.h2>
+                    <motion.p
+                      className="text-lg font-medium mb-6"
+                      style={{ color: '#AD6B19' }}
+                      whileHover={{ scale: 1.04, color: '#F2614E' }}
+                      transition={{ type: 'spring', stiffness: 300 }}
+                    >
                       {project.subtitle}
-                    </p>
+                    </motion.p>
                     <p className="text-muted-foreground leading-relaxed mb-8">
                       {project.description}
                     </p>
@@ -165,13 +181,14 @@ const Garden = () => {
                         <p className="text-sm uppercase tracking-wider text-muted-foreground mb-2">Themes</p>
                         <div className="flex flex-wrap gap-2">
                           {project.themes.map((theme) => (
-                            <span
+                            <motion.span
                               key={theme}
-                              className="px-3 py-1 text-sm"
+                              className="px-3 py-1 text-sm rounded-full shadow-sm cursor-pointer hover:bg-[#F2614E] hover:text-white transition-colors duration-300"
                               style={{ color: '#000000', background: '#EDE6D5' }}
+                              whileHover={{ scale: 1.1 }}
                             >
                               {theme}
-                            </span>
+                            </motion.span>
                           ))}
                         </div>
                       </div>

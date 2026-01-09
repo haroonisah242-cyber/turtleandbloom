@@ -51,7 +51,12 @@ const About = () => {
   return (
     <Layout>
       {/* Hero Section */}
-      <section className="pt-32 pb-24 md:pt-40 md:pb-32 bg-background">
+      <motion.section
+        initial={{ opacity: 0, y: -40 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        className="pt-32 pb-24 md:pt-40 md:pb-32 bg-background"
+      >
         <div className="container">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -70,7 +75,7 @@ const About = () => {
             </p>
           </motion.div>
         </div>
-      </section>
+      </motion.section>
 
       {/* Mission & Vision */}
       <section className="py-24 md:py-32 bg-foreground text-background">

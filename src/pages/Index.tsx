@@ -3,7 +3,8 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Play, Sparkles } from "lucide-react";
 import { Layout } from "@/components/Layout";
-import heroImage from "@/assets/Hero.png";
+// import heroImage from "@/assets/Hero.png";
+import HeroSlider from "@/components/HeroSlider";
 import whyImg from "@/assets/why.png";
 import moveImg from "@/assets/move.png";
 import vectorImg from "@/assets/Vector.png";
@@ -51,7 +52,12 @@ const allProjects = [
   },
   {
     id: "num-fun",
-    title: "NUM Fun Africa",
+      <motion.section
+        initial={{ opacity: 0, y: -40 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 0.1 }}
+        className="w-full flex flex-col items-center bg-white pt-10 pb-2 mt-24"
+      >
     subtitle: "A live-action numeracy show that makes maths fun and confidence-building.",
     image: numFunAfrica,
   },
@@ -72,7 +78,7 @@ const processSteps = [
   {
     step: "02",
     title: "Create",
-    description: "We build characters, worlds and formats that feel honest and emotionally grounded.",
+      </motion.section>
   },
   {
     step: "03",
@@ -92,7 +98,7 @@ const Index = () => {
           className="w-[700px] max-w-full h-auto mb-2 mx-auto transition-transform duration-500 ease-in-out hover:scale-105 turtle-bounce"
           style={{ cursor: 'pointer' }}
         />
-        <div className="flex justify-center items-center border-2 border-blue-500 rounded-sm px-2 py-1 w-fit gap-8 mt-2">
+        <div className="hidden md:flex justify-center items-center border-2 border-blue-500 rounded-sm px-2 py-1 w-fit gap-8 mt-2">
           <div className="flex items-center gap-1">
             <img src={vectorImg} alt="vector" className="w-4 h-4" />
             <span className="text-[11px] text-[#373324] tracking-wide">FREE SHIP ORDER OVER $100</span>
@@ -107,41 +113,44 @@ const Index = () => {
           </div>
         </div>
       </section>
-      {/* Hero Section */}
+      {/* Hero Section with Slider and Overlayed Content */}
       <section className="relative min-h-[60vh] flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0">
-          <img
-            src={heroImage}
-            alt="Child reading a magical book"
-            className="w-full h-full object-cover"
-          />
-        </div>
-        <div className="relative z-10 container flex flex-col justify-center items-center h-full px-4 py-12 sm:py-16">
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.1 }}
-            className="font-display text-white text-3xl xs:text-4xl sm:text-5xl md:text-7xl font-medium max-w-3xl leading-tight mb-8 text-center drop-shadow-lg"
-          >
-            Stories that expand what the world sees
-          </motion.h1>
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="flex flex-col gap-4 w-full max-w-sm"
-          >
-            <Button asChild variant="hero" size="xl" className="w-full">
-              <Link to="/garden">
-                Explore projects
-              </Link>
-            </Button>
-            <Button asChild variant="heroOutline" size="xl" className="w-full border-white text-white bg-white/20 hover:bg-white/40 hover:text-foreground">
-              <Link to="/shop">
-                Shop TheMOOVBook™
-              </Link>
-            </Button>
-          </motion.div>
+      <motion.section
+        initial={{ opacity: 0, y: 60 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8, delay: 0.2 }}
+        className="py-24 md:py-32"
+      >
+        {/* Sticky Overlay Content */}
+        <div className="absolute inset-0 flex items-center justify-center z-20 pointer-events-none">
+          <div className="bg-white/90 rounded-xl shadow-xl px-8 py-10 flex flex-col items-center max-w-2xl w-full mx-4 pointer-events-auto sticky top-0">
+            <motion.h1
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.1 }}
+              className="font-display text-gray-900 text-3xl xs:text-4xl sm:text-5xl md:text-7xl font-medium leading-tight mb-8 text-center drop-shadow-lg"
+            >
+              Stories that expand what the world sees
+            </motion.h1>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="flex flex-col gap-4 w-full max-w-sm items-center"
+            >
+              <Button asChild variant="hero" size="xl" className="w-full transition-opacity duration-700 pointer-events-auto opacity-100">
+                <Link to="/garden">
+      </motion.section>
+                </Link>
+              </Button>
+              <Button asChild variant="heroOutline" size="xl" className="w-full border-gray-900 text-gray-900 bg-white/40 hover:bg-white/60 hover:text-foreground transition-opacity duration-700 pointer-events-auto opacity-100">
+                <Link to="/shop">
+                  Shop TheMOOVBook™
+                </Link>
+              </Button>
+            </motion.div>
+          </div>
         </div>
       </section>
 

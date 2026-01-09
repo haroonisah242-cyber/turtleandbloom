@@ -26,9 +26,16 @@ const socialLinks = [
   { icon: Linkedin, href: "https://linkedin.com", label: "LinkedIn" },
 ];
 
+import { motion } from "framer-motion";
+
 export const Footer = () => {
   return (
-    <footer className="bg-foreground text-background">
+    <motion.footer
+      initial={{ opacity: 0, y: 40 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8, delay: 0.2 }}
+      className="bg-foreground text-background"
+    >
       <div className="container py-10 md:py-16">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12">
           {/* Brand */}

@@ -39,27 +39,44 @@ export const Header = () => {
       }`}
     >
       <div className="container flex items-center justify-between px-2 sm:px-4">
-        <Link 
-          to="/" 
-          className="flex items-center hover:opacity-70 transition-opacity"
+        <motion.div
+          whileHover={{ scale: 1.12, rotate: 2 }}
+          whileTap={{ scale: 0.97, rotate: -2 }}
+          transition={{ type: 'spring', stiffness: 300 }}
         >
-          <img src={groupLogo} alt="Turtle & Bloom Logo" className="h-12 w-auto sm:h-16" style={{ filter: 'drop-shadow(0 2px 8px rgba(0,0,0,0.10))' }} />
-        </Link>
+          <Link 
+            to="/" 
+            className="flex items-center group hover:scale-105 transition-transform duration-300"
+          >
+            <img 
+              src={groupLogo} 
+              alt="Turtle & Bloom Logo" 
+              className="h-12 w-auto sm:h-16 group-hover:animate-spin-slow transition-transform duration-500"
+              style={{ filter: 'drop-shadow(0 2px 8px rgba(0,0,0,0.10))' }} 
+            />
+          </Link>
+        </motion.div>
 
         {/* Desktop Navigation */}
         <nav className="hidden lg:flex items-center gap-4 xl:gap-8">
-          {navLinks.map((link) => (
-            <Link
+          {navLinks.map((link, idx) => (
+            <motion.div
               key={link.path}
-              to={link.path}
-              className={`text-base tracking-wide transition-all duration-300 hover:text-muted-foreground px-2 ${
-                location.pathname === link.path
-                  ? "font-medium text-[#F2614E]"
-                  : "text-muted-foreground"
-              }`}
+              whileHover={{ scale: 1.18, rotate: idx % 2 === 0 ? 2 : -2, color: '#F2614E' }}
+              whileTap={{ scale: 0.93, rotate: 0 }}
+              transition={{ type: 'spring', stiffness: 350 }}
             >
-              {link.name}
-            </Link>
+              <Link
+                to={link.path}
+                className={`text-base tracking-wide transition-all duration-300 hover:text-[#F2614E] px-2 ${
+                  location.pathname === link.path
+                    ? "font-bold text-[#F2614E] underline underline-offset-4 decoration-2"
+                    : "text-muted-foreground"
+                }`}
+              >
+                {link.name}
+              </Link>
+            </motion.div>
           ))}
         </nav>
 
